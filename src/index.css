@@ -1,3 +1,10 @@
 body {
 	font-family: sans-serif;
+	margin: 0;
+	font-family: 'Space Grotesk', sans-serif;
 }
+
+img {
+	width: 100%;
+	height: auto;
+  }
