@@ -13,7 +13,7 @@ const Cards = ({ formValues }) => {
 	return (
 		<StyledCardsContainer>
 			<StyledSecondaryCard>
-				<StyledBackNumbers>000</StyledBackNumbers>
+				<StyledBackNumbers>{formValues.cvc || '000'}</StyledBackNumbers>
 			</StyledSecondaryCard>
 			<StyledPrimaryCard>
 				<StyledVisa>
@@ -27,9 +27,9 @@ const Cards = ({ formValues }) => {
 						{formValues.name || 'JANE APPLESEED'}
 					</StyledFrontName>
 					<StyledFrontExpiration>
-						<span>00</span>
+						{formValues.month || '00'}
 						<span>/</span>
-						<span>00</span>
+						{formValues.year || '00'}
 					</StyledFrontExpiration>
 				</div>
 			</StyledPrimaryCard>

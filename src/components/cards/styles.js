@@ -4,7 +4,11 @@ const StyledCardsContainer = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 150px;
+	margin-bottom: 400px;
+	@media screen and (min-width: 1024px) {
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
 `;
 
 const StyledSecondaryCard = styled.div`
@@ -14,7 +18,7 @@ const StyledSecondaryCard = styled.div`
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
-	position: relative;
+	position: absolute;
 `;
 
 const StyledBackNumbers = styled.span`
@@ -37,6 +41,10 @@ const StyledPrimaryCard = styled.div`
 	top: 125px;
 	right: 10px;
 	padding: 5px;
+	@media screen and (min-width: 1024px) {
+		top: 225px;
+		right: -240px;
+	}
 `;
 
 const StyledFrontNumbers = styled.span`

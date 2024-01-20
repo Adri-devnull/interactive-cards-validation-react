@@ -3,10 +3,12 @@ import {
 	StyledContainersInput,
 	StyledContainersLabels,
 	StyledContainersNameNumber,
+	StyledErrorContainer,
 	StyledErrorSpan,
 	StyledForm,
 	StyledInputMonth,
-	StyledInputs
+	StyledInputs,
+	StyledTextsLabel
 } from './styles';
 import { FORM_VALIDATIONS } from '../../constants/validations';
 
@@ -14,7 +16,7 @@ const Form = ({ handleSubmit, register, errors }) => {
 	return (
 		<StyledForm onSubmit={handleSubmit(onSubmit)}>
 			<StyledContainersInput>
-				<label htmlFor='name'>CARDHOLDER NAME</label>
+				<StyledTextsLabel htmlFor='name'>CARDHOLDER NAME</StyledTextsLabel>
 				<StyledInputs
 					type='text'
 					id='name'
@@ -26,7 +28,7 @@ const Form = ({ handleSubmit, register, errors }) => {
 				{/* {<span>{errors?.name?.message}</span>} */}
 			</StyledContainersInput>
 			<StyledContainersInput>
-				<label htmlFor='number'>CARD NUMBER</label>
+				<StyledTextsLabel htmlFor='number'>CARD NUMBER</StyledTextsLabel>
 				<StyledInputs
 					type='text'
 					id='number'
@@ -38,37 +40,43 @@ const Form = ({ handleSubmit, register, errors }) => {
 				)}
 			</StyledContainersInput>
 			<StyledContainersNameNumber>
-				<label htmlFor='month'>EXP.DATE(MM/YY)</label>
-				<label htmlFor='cvc'>CVC</label>
+				<StyledTextsLabel htmlFor='month'>EXP.DATE(MM/YY)</StyledTextsLabel>
+				<StyledTextsLabel htmlFor='cvc'>CVC</StyledTextsLabel>
 			</StyledContainersNameNumber>
 			<StyledContainersLabels>
-				<StyledInputMonth
-					type='text'
-					id='month'
-					maxLength={2}
-					{...register('month', FORM_VALIDATIONS.MONTH)}
-				/>
-				{errors && errors.month && (
-					<StyledErrorSpan>{errors.month.message}</StyledErrorSpan>
-				)}
-				<StyledInputMonth
-					type='text'
-					id='year'
-					maxLength={2}
-					{...register('year', FORM_VALIDATIONS.YEAR)}
-				/>
-				{errors && errors.year && (
-					<StyledErrorSpan>{errors.year.message}</StyledErrorSpan>
-				)}
-				<StyledInputs
-					type='text'
-					id='cvc'
-					maxLength={3}
-					{...register('cvc', FORM_VALIDATIONS.CVC)}
-				/>
-				{errors && errors.cvc && (
-					<StyledErrorSpan>{errors.cvc.message}</StyledErrorSpan>
-				)}
+				<StyledErrorContainer>
+					<StyledInputMonth
+						type='text'
+						id='month'
+						maxLength={2}
+						{...register('month', FORM_VALIDATIONS.MONTH)}
+					/>
+					{errors && errors.month && (
+						<StyledErrorSpan>{errors.month.message}</StyledErrorSpan>
+					)}
+				</StyledErrorContainer>
+				<StyledErrorContainer>
+					<StyledInputMonth
+						type='text'
+						id='year'
+						maxLength={2}
+						{...register('year', FORM_VALIDATIONS.YEAR)}
+					/>
+					{errors && errors.year && (
+						<StyledErrorSpan>{errors.year.message}</StyledErrorSpan>
+					)}
+				</StyledErrorContainer>
+				<StyledErrorContainer>
+					<StyledInputs
+						type='text'
+						id='cvc'
+						maxLength={3}
+						{...register('cvc', FORM_VALIDATIONS.CVC)}
+					/>
+					{errors && errors.cvc && (
+						<StyledErrorSpan>{errors.cvc.message}</StyledErrorSpan>
+					)}
+				</StyledErrorContainer>
 			</StyledContainersLabels>
 			<StyledButton>Confirm</StyledButton>
 		</StyledForm>
