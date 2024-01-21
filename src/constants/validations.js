@@ -59,7 +59,3 @@ export const FORM_VALIDATIONS = {
 	YEAR: yearCardNumberValidation,
 	CVC: cvcCardNumberValidation
 };
-
-const arr = [5];
-
-console.log(arr?.[1]?.[0]);
